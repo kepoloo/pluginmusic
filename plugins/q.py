@@ -249,9 +249,9 @@ def isArgInt(txt) -> list:
         return [False, 0]
 
 
-@app.on_message(filters.command(["q", "r"]) & filters.reply)
+@app.on_message(filters.command(["q"]) & filters.reply)
 async def msg_quotly_cmd(self: app, ctx: Message):
-    ww = await ctx.reply_text("ᴡᴀɪᴛ ᴀ sᴇᴄᴏɴᴅ......")
+    ww = await ctx.reply_text("Tunggu sedang dibuat......")
     is_reply = False
     if ctx.command[0].endswith("r"):
         is_reply = True
@@ -260,7 +260,7 @@ async def msg_quotly_cmd(self: app, ctx: Message):
         if check_arg[0]:
             if check_arg[1] < 2 or check_arg[1] > 10:
                 await ww.delete()
-                return await ctx.reply_msg("Invalid range", del_in=6)
+                return await ctx.reply_text("Invalid range", del_in=6)
             try:
                 messages = [
                     i
@@ -284,7 +284,7 @@ async def msg_quotly_cmd(self: app, ctx: Message):
                 return await ctx.reply_sticker(bio_sticker)
             except Exception:
                 await ww.delete()
-                return await ctx.reply_msg("🤷🏻‍♂️")
+                return await ctx.reply_text("🤷🏻‍♂️")
     try:
         messages_one = await self.get_messages(
             chat_id=ctx.chat.id, message_ids=ctx.reply_to_message.id, replies=-1
@@ -292,7 +292,7 @@ async def msg_quotly_cmd(self: app, ctx: Message):
         messages = [messages_one]
     except Exception:
         await ww.delete()
-        return await ctx.reply_msg("🤷🏻‍♂️")
+        return await ctx.reply_text("🤷🏻‍♂️")
     try:
         make_quotly = await pyrogram_to_quotly(messages, is_reply=is_reply)
         bio_sticker = BytesIO(make_quotly)
@@ -301,24 +301,24 @@ async def msg_quotly_cmd(self: app, ctx: Message):
         return await ctx.reply_sticker(bio_sticker)
     except Exception as e:
         await ww.delete()
-        return await ctx.reply_msg(f"ERROR: {e}")
+        return await ctx.reply_text(f"ERROR: {e}")
 
 
 __HELP__ = """
-**ǫᴜᴏᴛᴇ ɢᴇɴᴇʀᴀᴛɪᴏɴ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs**
+**quote generation bot commands**
 
-ᴜsᴇ ᴛʜᴇsᴇ ᴄᴏᴍᴍᴀɴᴅs ᴛᴏ ᴄʀᴇᴀᴛᴇ ǫᴜᴏᴛᴇs ғʀᴏᴍ ᴍᴇssᴀɢᴇs:
+use these commands to create quotes from messages:
 
-- `/q`: ᴄʀᴇᴀᴛᴇ ᴀ ǫᴜᴏᴛᴇ ғʀᴏᴍ ᴀ sɪɴɢʟᴇ ᴍᴇssᴀɢᴇ.
-- `/r`: ᴄʀᴇᴀᴛᴇ ᴀ ǫᴜᴏᴛᴇ ғʀᴏᴍ ᴀ sɪɴɢʟᴇ ᴍᴇssᴀɢᴇ ᴀɴᴅ ɪᴛs ʀᴇᴘʟɪᴇᴅ ᴍᴇssᴀɢᴇ.
+- `/q`: create a quote from a single message.
+- `/r`: create a quote from a single message and its replied message.
 
-**ᴇxᴀᴍᴘʟᴇs:**
-- `/q `: ᴄʀᴇᴀᴛᴇ ᴀ ǫᴜᴏᴛᴇ ғʀᴏᴍ ʀᴇᴘʟɪᴇᴅ ᴍᴇssᴀɢᴇs.
+**examples:**
+- `/q `: create a quote from replied messages.
 
-- `/r `: ᴄʀᴇᴀᴛᴇ ᴀ ǫᴜᴏᴛᴇ ғʀᴏᴍ ʀᴇᴘʟɪᴇᴅ ᴍᴇssᴀɢᴇs.
+- `/r `: create a quote from replied messages.
 
-**ɴᴏᴛᴇ:**
-ᴍᴀᴋᴇ sᴜʀᴇ ᴛᴏ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ғᴏʀ ᴛʜᴇ ǫᴜᴏᴛᴇ ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ᴡᴏʀᴋ.
+**note:**
+make sure to reply to a message for the quote command to work.
 """
 
 __MODULE__ = "Qoute"
