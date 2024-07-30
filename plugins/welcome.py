@@ -37,9 +37,9 @@ async def handle_new_member(member, chat):
             await chat.ban_member(member.id)
             await app.send_message(
                 chat.id,
-                f"{member.mention} was globally banned, and got removed,"
-                + " if you think this is a false gban, you can appeal"
-                + " for this ban in support chat.",
+                f"{member.mention} Dilarang secara global, dan telah dihapus,"
+                + " Jika Anda merasa ini adalah gban palsu, Anda dapat mengajukan banding"
+                + " Untuk larangan ini di obrolan dukungan.",
             )
             return
         if member.is_bot:
