@@ -31,7 +31,7 @@ async def _(client, message):
                 if "answer" in response.json():
                     x = response.json()["answer"]                  
                     await prs.edit(
-                      f"<blockquote>{x}\n\n<b>{sks}ᴘᴇʀᴛᴀɴʏᴀᴀɴ ɪɴɪ ᴅɪᴊᴀᴡᴀʙ ᴏʟᴇʜ</b> : <code>{bot.me.mention}</code></blockquote>"
+                      f"{x}<b>{sks}ᴘᴇʀᴛᴀɴʏᴀᴀɴ ɪɴɪ ᴅɪᴊᴀᴡᴀʙ ᴏʟᴇʜ</b> : <code>{bot.me.mention}</code>"
                     )
                 else:
                     await message.reply_text(f"<b>{ggl}ɴᴏ 'ʀᴇsᴜʟᴛs' ᴋᴇʏ ғᴏᴜɴᴅ ɪɴ ᴛʜᴇ ʀᴇsᴘᴏɴsᴇ.</b>")
