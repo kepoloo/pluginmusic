@@ -1,9 +1,9 @@
 #
 # Copyright (C) 2024 by TheTeamVivek@Github, < https://github.com/TheTeamVivek >.
 #
-# This file is part of < https://github.com/TheTeamVivek/YukkiMusic > project,
+# This file is part of < https://github.com/TheTeamVivek/VIPMUSIC > project,
 # and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheTeamVivek/YukkiMusic/blob/master/LICENSE >
+# Please see < https://github.com/TheTeamVivek/VIPMUSIC/blob/master/LICENSE >
 #
 # All rights reserved.
 #
@@ -22,17 +22,17 @@ from pyrogram.types import Message
 
 from config import BANNED_USERS, adminlist
 from strings import get_string
-from YukkiMusic import app
-from YukkiMusic.misc import SUDOERS
-from YukkiMusic.utils.database import (
+from VIPMUSIC import app
+from VIPMUSIC.misc import SUDOERS
+from VIPMUSIC.utils.database import (
     get_assistant,
     get_cmode,
     get_lang,
     get_playmode,
     get_playtype,
 )
-from YukkiMusic.utils.logger import play_logs
-from YukkiMusic.utils.stream.stream import stream
+from VIPMUSIC.utils.logger import play_logs
+from VIPMUSIC.utils.stream.stream import stream
 
 RADIO_STATION = {
     "IRADIO": "https://n03.radiojar.com/4ywdgup3bnzuv?rj-ttl=5&rj-tok=AAABj8uuZsUA35B3Wyo8o0tCGg",
