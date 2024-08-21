@@ -19,7 +19,6 @@ from typing import Dict, List, Union
 from YukkiMusic import app
 from YukkiMusic.misc import SUDOERS
 from YukkiMusic.core.mongo import mongodb
-from utils.error import capture_err
 from YukkiMusic.utils.keyboard import ikb
 from YukkiMusic.utils.database import save_filter
 from YukkiMusic.utils.functions import (
